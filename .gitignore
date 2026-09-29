@@ -1,0 +1,10 @@
+/.idea/
+/node_modules/
+/dist
+*.json
+.env
+
+# Tracked despite the blanket *.json rule above — these are template content, not
+# local config. Real per-env files (deployment.config.<env>.json, mcpconfig.<env>.json)
+# stay ignored on purpose: they carry botIds and domains that differ per developer.
+!mcpconfig.example.json

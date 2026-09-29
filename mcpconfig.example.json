@@ -1,0 +1,37 @@
+{
+  "_comment": "EXAMPLE ONLY — copy to mcpconfig.<env>.json (e.g. mcpconfig.dev.json) and delete this key. `frontmai-cli deployMcpTool` reads mcpconfig.<env>.json for the ACTIVE profile's env, so this .example file is never deployed by accident. Generate the real file with `npx frontmai-cli initMcpTool` (it scaffolds the same fields, all empty) or copy this one. One file per tool: deployMcpTool reads exactly one per directory, so to register a second tool against the same bot, swap this file's contents and re-run it.",
+
+  "_comment_name": "Shown to MCP clients in tools/list. MUST match /^[a-zA-Z0-9_-]{1,64}$/ — letters, digits, hyphen, underscore only; no spaces, dots or slashes. Convention: <bot>-<action>.",
+  "name": "example-tool-action",
+
+  "_comment_description": "One line. This is what an MCP client shows the model when deciding whether to call the tool — write it for that reader.",
+  "description": "One-line summary of what this tool does and when to call it.",
+
+  "_comment_inputSchema": "JSON-schema subset. Each properties.<x>.type MUST be one of: string, boolean, number, double. Nothing else is validated by the MCP server; unsupported types default to string.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["exampleInput"],
+    "properties": {
+      "exampleInput": {
+        "type": "string",
+        "description": "What this argument is for."
+      },
+      "exampleFlag": {
+        "type": "boolean",
+        "description": "Optional — not listed in `required`."
+      }
+    }
+  },
+
+  "_comment_enabled": "false hides the tool from tools/list and makes tools/call reject it. This is the only documented way to retire a tool — see README § 'Open questions'.",
+  "enabled": true,
+
+  "_comment_intentId": "MUST equal the INTENT_NAME constant in your tool intent file (src/mcp/<your-tool>.js). A mismatch fails at dispatch, not at deploy.",
+  "intentId": "exampleMcpTool",
+
+  "_comment_botId": "MUST equal the botId in deployment.config.<env>.json — same bot, same value. Where a NEW botId comes from is undocumented; ask the platform owner.",
+  "botId": "",
+
+  "_comment_domain": "The userDomain the bot lives under. You need the `developer` role on it.",
+  "domain": ""
+}

@@ -1,0 +1,5 @@
+exclude_paths:
+  - "__tests__/**"
+  - "docs/**"
+  - "dist/**"
+  - "specs/**"
