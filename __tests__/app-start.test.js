@@ -28,10 +28,10 @@ describe("Template — app start (MAIN intent)", () => {
     expect(result.responseType).toBe("string");
 
     // getStringMessages() returns message OBJECTS, not bare strings —
-    // [{ content: "Hello world", options: { ... } }] — so a plain toContain()
+    // [{ content: "Hello World! Welcome to frontM", options: { ... } }] — so a plain toContain()
     // against a string can never match. Assert on the content of one of them.
     expect(result.getStringMessages()).toContainEqual(
-      expect.objectContaining({ content: "Hello world" })
+      expect.objectContaining({ content: "Hello World! Welcome to frontM" })
     );
   });
 });
